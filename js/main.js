@@ -1,9 +1,9 @@
 // array of objects to store existing user data
 // body = document.querySelector("body");
-var body = document.getElementById('body') 
-var getImage = document.createElement("img");
-getImage.setAttribute("src",'../img/questionmark.jpg');
-body.appendChild(getImage);
+// var body = document.getElementById('body') 
+// var getImage = document.createElement("img");
+// getImage.setAttribute("src",'../img/questionmark.jpg');
+// body.appendChild(getImage);
 
 
 var existingUsers = [
@@ -38,12 +38,6 @@ function login() {
 		console.log(existingUsers[i])
 		if(username.value.toLowerCase() === existingUsers[i].user && password.value.toLowerCase() === existingUsers[i].pass) {
 			// check to see if the IF statement code block executed
-			body = document.querySelector("body");
-
-		//function bgImage (element,background) {
-   			body.style.backgroundImage = "(../img/answer.jpg)";
-		//}
-
 			console.log("if statement ran, so we have a match!")
    			// change class of results to let the user know it worked 
 			results.className = 'success'
@@ -57,13 +51,39 @@ function login() {
 	
 	// run failure if username and password didn't match
 	console.log("Wrong answers")
-	body = document.querySelector("body");
-	//function bgImage (element,background) {
-   		body.style.backgroundImage = "(../img/fail.png)";
-	//}
-	// bgImage (body,"../img/fail.png");
 	// change class of results to let the user know it failed
 	results.className = 'failure'
 	// update the text of the results element to display a failure message
 	results.textContent = "Those are not the correct answers!"
+}
+
+function register(){
+	// store the tag with id="sign" in var username
+	var username = document.getElementById("username")
+	// store the tag with id="sign" in var password
+	var password = document.getElementById("password")
+	// store the tag with id="results" in var results
+	var results = document.getElementById('results')
+
+	for(i = 0; i < existingUsers.length; i = i + 1) {
+		console.log(existingUsers[i]);
+	if (username.value.toLowerCase() === existingUsers[i].user){
+			console.log("User Already Exists") 
+			return
+		} 
+	}
+
+	var newUser = {
+		user: username,
+		password:password,
+	}
+
+	existingUsers.push(newUser)
+
+	console.log("Welcome to our site! Try logging in.")
+	results.className = 'success'
+			// update the text of the results element to display a success message
+			results.textContent = "Welcome! Try logging in. "
+
+			console.log(existingUsers)
 }

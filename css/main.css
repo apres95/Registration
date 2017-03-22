@@ -1,5 +1,5 @@
 body {
-	/*background-image: url(../img/questionmark.jpg);*/
+	background-color: lightgrey;
 	background-position: center;
 	background-size: cover;*/
 	font-family: 'Freckle Face', cursive;
@@ -25,18 +25,22 @@ body {
 	text-align: center;
 }
 .button {
-	padding: 5px 120px;
+	padding: 5px 20px;
 	background-color: black;
 	border-radius: 5px;
 	border-color: #ff6600;
 	color: #f90606;
 	font-size: 20px;
+	margin-right: 20px;
+}
+#buttons {
+	display: inline-block;
 }
 
 .success {
 	background-color: #5cb85c;
 	transition: 0.3s all ease-in-out;
-	background-image: url(../img/answer.jpg);
+/*	background-image: url(../img/answer.jpg);*/
 	background-position: center;
 	background-size: cover;
 }
